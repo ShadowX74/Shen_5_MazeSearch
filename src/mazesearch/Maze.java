@@ -35,7 +35,7 @@ public class Maze {
 
         if (traverse(row - 1, column) || traverse(row + 1, column) || traverse(row, column + 1) || traverse(row, column - 1)) {
             grid[row][column] = PATH;
-            return true;
+            end;
         }
         for (int i = 0; i < 100; i++) {
             System.out.println("");
