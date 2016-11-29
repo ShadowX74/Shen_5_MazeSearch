@@ -26,35 +26,37 @@ public class Maze {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
 
     public boolean traverse(int row, int column) throws InterruptedException {
-
-        if (valid(row, column)) {
-            grid[row][column] = TRIED;
-        } else {
+        
+        if (!valid(row, column)) {
             return false;
+        } else {
+            grid[row][column] = TRIED;
         }
 
-        if (traverse(row - 1, column) || traverse(row + 1, column) || traverse(row, column + 1) || traverse(row, column - 1)) {
-            grid[row][column] = PATH;
-            end;
-        }
-        for (int i = 0; i < 100; i++) {
-            System.out.println("");
-        }
-
+        boolean possible = false;
+        
         toString(grid);
 
         Thread.sleep(500);
-
-        return true;
-
+        
+        for (int i = 0; i < 
+                100; i++) {
+            System.out.println("");
+        }
+        
+        if ((traverse(row - 1, column) || traverse(row + 1, column) || traverse(row, column + 1) || traverse(row, column - 1)) || (row == grid.length - 1 && column == grid[0].length - 1)) {
+            grid[row][column] = PATH;
+            possible = true;
+        }
+        
+        if (row == grid.length - 1 && column == grid[0].length - 1) {
+            toString(grid);
+        }
+        return possible;
     }
 
     private boolean valid(int row, int column) throws InterruptedException {
-        if (row < grid.length && row >= 0 && column < grid[0].length && column >= 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return (row < grid.length && row >= 0) && (column < grid[0].length && column >= 0) && grid[row][column] == 1;
     }
 
     private void toString(int[][] arr) {
