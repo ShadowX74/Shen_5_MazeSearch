@@ -20,7 +20,7 @@ public class Maze {
     private final int PATH = 7;
 
     //map
-    public int[][] grid = new int[8][13];
+    private int[][] grid = new int[8][13];
 //            private int[][] grid 
 //            = {{1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1},
 //            {1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1},
@@ -82,12 +82,12 @@ public class Maze {
 
         toString(grid);
 
-        Thread.sleep(500);
+        Thread.sleep(350);
 
         for (int i = 0; i < 100; i++) {
             System.out.println("");
         }
-
+/*If there are open spaces around, may be correct path*/
         if ((traverse(row - 1, column) || traverse(row + 1, column) || traverse(row, column + 1) || traverse(row, column - 1)) || (row == grid.length - 1 && column == grid[0].length - 1)) {
             grid[row][column] = PATH;
             possible = true;
@@ -115,7 +115,7 @@ public class Maze {
         }
 
         boolean possible = false;
-
+/*If there are open spaces around, may be correct path*/
         if ((testMaze(row - 1, column) || testMaze(row + 1, column) || testMaze(row, column + 1) || testMaze(row, column - 1)) || (row == grid.length - 1 && column == grid[0].length - 1)) {
             grid[row][column] = PATH;
             possible = true;
