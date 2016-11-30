@@ -26,8 +26,17 @@ public class MazeSearch {
         }
     }
 
+/***********************************************************************
+* Method: a_maze_ing
+* Description: creates maze and solves it
+* Parameters: N/A
+* Pre-conditions: called in main
+* Post-conditions: solved maze, program ends
+***********************************************************************/
     public static void a_maze_ing() throws InterruptedException {
         Maze labyrinth = new Maze();
+        labyrinth.generate();
+
         if (labyrinth.traverse(0,0)) {
             System.out.println("The maze was successfully solved!");
         } else {
