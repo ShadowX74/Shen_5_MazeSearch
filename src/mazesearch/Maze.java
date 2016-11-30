@@ -45,9 +45,12 @@ public class Maze {
                 grid[i][j] = rand.nextInt(2); //Random walls or paths
             }
         }
+        grid[0][0] = 1;
+        grid[grid.length - 1][grid[0].length - 1] = 1;
         
         try {
             if (!testMaze(0, 0)) { //If not solvable, re-generate
+                System.out.println("no");
                 generate();
             } else {
                 for (int i = 0; i < grid.length; i++) {
