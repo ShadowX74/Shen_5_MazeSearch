@@ -50,7 +50,6 @@ public class Maze {
         
         try {
             if (!testMaze(0, 0)) { //If not solvable, re-generate
-                System.out.println("no");
                 generate();
             } else {
                 for (int i = 0; i < grid.length; i++) {
